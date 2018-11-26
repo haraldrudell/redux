@@ -7,7 +7,7 @@ import logger from 'koa-logger'
 import Router from 'koa-router'
 import bodyParser from 'koa-body'
 import data from './data'
-import { createJob } from './transforms'
+import { createJob } from './transforms.mjs'
 
 export default class ApiServer {
   constructor() {
@@ -30,13 +30,10 @@ export default class ApiServer {
       .get('/software', ctx => ctx.body = ({options: data.software}))
       .get('/hardware', ctx => ctx.body = ({options: data.hardware}))
       .post('/jobs', ctx => { // { name: 'Noname', softwareId: 'cfd', applicationId: 'icing', hardwareId: 'e4', cores: 1 }
-        ctx.body = createJob(ctx.request.body)
+      const b = createJob(ctx.request.body, data)
+      if (b) ctx.body = b
+      else ctx.throw(400)
       })
-  }
-
-  duration(hardwareCores) {
-    const total = Math.floor(Math.random() * (90000 - 70000 + 1)) + 70000;
-    return total - (hardwareCores*1000);
   }
 
   async listen(port) {
