@@ -24,3 +24,7 @@ export async function getJobs() {
 export function setDebug(debug0) {
   //debug = debug0
 }
+
+export function imageUrl(src) {
+  return `https://raw.githubusercontent.com/haraldrudell/redux/master/public/${src}`
+}

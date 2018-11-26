@@ -8,6 +8,7 @@ import { connect } from 'react-redux'
 import {getSliceData} from './jobsSlice'
 import {List} from 'immutable'
 import styled from 'styled-components'
+import { imageUrl } from 'api'
 
 const Img = styled.img`
 max-width: 100%
@@ -21,7 +22,7 @@ export default connect(mapStateToProps)(({job, id}) => { // job is immutable Map
     <Typography variant='title' align='center' gutterBottom>
       Results: {name} {id}
     </Typography>
-    {imageUrls.map((uri, i) => <Img src={uri} alt='resultImage' key={i} />)}
+    {imageUrls.map((uri, i) => <Img src={imageUrl(uri)} alt='resultImage' key={i} />)}
   </Fragment>
 })
 

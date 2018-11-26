@@ -49,3 +49,7 @@ async function getOptions(endPoint) {
   if (!Array.isArray(options)) throw new Error(`Bad response from: ${endPoint}`)
   return options
 }
+
+export function imageUrl(src) {
+  return src
+}
