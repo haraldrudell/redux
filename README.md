@@ -2,7 +2,9 @@
 
 ## © 2018-present Harald Rudell <harald.rudell@gmail.com> (http://www.haraldrudell.com)
 
-[Live Demo](https://haraldrudell.github.io/redux/)
+## [Live Demo](https://haraldrudell.github.io/redux/)
+
+### Features
 
 * Material-UI
 * Styled components
